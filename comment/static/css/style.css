@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: wheat;
+}
+.scroll{
+    overflow-y: scroll;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+nav, main, footer{
+    z-index: 1;
+    position: relative;
+    padding: 2rem;
+}
+nav, nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+nav ul li{
+    padding:0 2rem ;
+}
+#close, #open{
+    display: none;
+}
+#id_message{
+    height: 60px ;
+}
+.cover{
+    
+    position: fixed;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.891);
+}
+form .submit{
+    color:wheat;
+    border: 3px solid wheat;
+}

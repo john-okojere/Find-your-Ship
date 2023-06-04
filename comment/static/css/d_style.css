@@ -1,0 +1,15 @@
+@media screen and (min-width:650px) {
+    .scroll{
+        color: white;
+        padding:2% 10%;
+    }
+    .m_form{
+        display: grid;
+        grid-template-columns: 45% 50%;
+        grid-gap: 5%;
+    }
+    .a_form{
+        padding: 5%;
+    }
+    
+}

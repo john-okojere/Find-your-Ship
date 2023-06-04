@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+{% for wish in wishes  %}
+    <div class="">
+        <img src="{{wish.pic.url}}" alt="{{wish.name}}'s wishes for daddy doyin">
+        <h3>{{wish.message}}</h3>
+    </div>
+{% endfor %}
+{% endblock content %}
