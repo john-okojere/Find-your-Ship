@@ -1,0 +1,16 @@
+db.sqlite3
+media/
+comment/static/
+venv/
+
+
+HBD/.env
+HBD/__pycache__
+comment/__pycache__
+user/__pycache__
+
+comment/migrations/*
+!comment/migrations/__init__.py
+
+user/migrations/*
+!user/migrations/__init__.py
