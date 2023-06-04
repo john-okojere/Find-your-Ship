@@ -163,3 +163,11 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
+LOT lamb, Hide within green pastures and make some noisy bleats, make our shepherd find you.
+
+Write some things to daddy without disclosing your name and see if he can tell who you are. 
+
+(you can  write about events You and him are privy to
+to help him recognise you.)
+
+e.g you can write about the first day you met him
