@@ -5,4 +5,4 @@ class CommentForm(forms.ModelForm):
     
     class Meta:
         model = Comment
-        fields = '__all__'
+        fields = ('A_picture_of_Daddie', 'message')

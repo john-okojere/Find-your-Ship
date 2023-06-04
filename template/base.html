@@ -37,11 +37,17 @@
             <li><a href="{% url 'form' %}">Find Your Sheep</a></li>
             <li><a href="https://layersoftruth.org/service">Siloam 2023</a></li>
             <li><a href="https://layersoftruth.org/About-Us">About</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="https://layersoftruth.org/profile">{{request.user.username}}</a></li>
+              {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+
+            {% endif %}
         </ul>
     </nav>
     <main class="p-5">
-        {% block content %}
-        {% endblock content %}
+        {% block main %}
+        {% endblock main %}
     </main>
     
 <footer class="text-muted py-0 pb-5" >
