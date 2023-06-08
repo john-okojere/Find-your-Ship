@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block main %}
+<style>
+    .ids{
+        border: 3px white solid;
+        padding: 0.8em;
+        display: inline-block;
+        border-radius: 20px;
+        margin: 10px;
+    }
+    .id-group{
+        margin: 10px;
+    }
+</style>
+<div class="m_form">
+
+    <img class="form_img" src="{% static 'img/Dad`s Bday 2.jpg' %}" style="width: 100%;justify-self: center;" alt>
+    <div class="a_form" style="align-self:center">
+        <div style="text-align: center;text-transform: uppercase;">
+            <p> THIS GAME IS A FORM OF GRATITUDE TO OUR FATHER IN THE LORD PASTOR DOYIN AKERELE. <br> THANK YOU SO MUCH FOR PARTICIPATING AND HONOURING HIM. <br>GOD BLESS YOU RICHLY 
+                <div class="id-group">
+                    YOUR TRACKNG ID IS : 
+                    {% for w in wishes %}
+                  <span class="ids">{{w.id}}</span>
+                {% endfor %}
+            </div>
+        </p>
+            <a href="https://layersoftruth.org" class="btn submit" style="color: wheat;">Back to Homepage</a>
+        </div>
+        <br>
+        
+    </div>
+</div>
+{% endblock main %}

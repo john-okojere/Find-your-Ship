@@ -16,13 +16,17 @@ def wishes(request):
 
 @login_required
 def form(request):
-    if request.method == "POST":
-        form = CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            f = form.save(commit=False)
-            f.user = request.user
-            form.save()
-            return redirect('wishes')
+    wishes = Comment.objects.filter(user=request.user)
+    if wishes:       
+        return render(request, 'home/hbd_profile.html', {'wishes':wishes})
     else:
-        form = CommentForm()
-    return render(request, 'home/form.html',{'form':form})
+        if request.method == "POST":
+            form = CommentForm(request.POST, request.FILES)
+            if form.is_valid():
+                f = form.save(commit=False)
+                f.user = request.user
+                form.save()
+                return redirect('/')
+        else:
+            form = CommentForm()
+        return render(request, 'home/form.html',{'form':form})
