@@ -1,4 +1,76 @@
 {% extends "base.html" %}
+{% load static %}
 {% block main %}
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
 
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    .scroll{
+        padding:0;
+    }
+    *{
+        color: inherit;
+    }
+    body{
+        background-image: url("{% static 'img/23.jpg' %}");
+        background-size:cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+  </style>
+
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light text-light">HAPPY BIRTHDAY DADDIE</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+          <p>
+            <a href="https" class="btn submit my-2"style="color: wheat;
+            border: 3px solid wheat;">Write to Daddie</a>
+            <a href="#" class="btn btn-secondary my-2" style="color: black;
+            background-color:wheat;border: 3px solid wheat;">Listen to his messages</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <div class="album py-5">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-dark">
+            {% for wish in wishes %}
+            <div class="col text-black">
+                <div class="card shadow-sm">
+      <div  class="bd-placeholder-img card-img-top" style="width:100%;height:225px;background-image: url('{{wish.A_picture_of_Daddie.url}}');background-position: center;background-size: cover;">
+
+      </div>
+                  <div class="card-body">
+                    <p class="card-text">{{wish.Your_story | truncatechars:100}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      </div>
+                      <small class="text-muted">{{wish.date_added}}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            {% endfor %}
+         
+        </div>
+      </div>
+    </div>
+  
 {% endblock main %}

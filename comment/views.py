@@ -5,7 +5,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    wishes = Comment.objects.all().order_by('-date_added')
+
+    return render(request, 'home/home.html', {'wishes':wishes})
 
 def about(request):
     return render(request, 'home/about.html')

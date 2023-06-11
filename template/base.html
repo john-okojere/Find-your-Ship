@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{% static 'css/p_style.css' %}">
         <link rel="stylesheet" href="{% static 'css/d_style.css' %}">
 
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name='keywords' content='Layers Of Truth, Soul center, Church in kaduna, Farin gida'>
         <meta name='description' content='Write some things to daddy without disclosing your name and see if he can tell who you are.'>
@@ -47,7 +48,7 @@
     <body>
         <div class="cover"></div>
 <div class="scroll">
-    <nav id="nav">
+    <nav id="nav" class="px-5">
         <div class="head_logo">
             <div class="logo" style="line-height: 0.05px;
             font-size: 12px;"><h2><a class="logo_img " href="#">Find Your Sheep</a></h2>daddie's birthday game</div>
@@ -55,7 +56,7 @@
             <div id="open"><a href="#" onclick="open_nav()"><i class="fa fa-bars"></i></a></div>
         </div>
         <ul id="nav_item">
-            <li><a href="https://layersoftruth.org">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="{% url 'form' %}">Find Your Sheep</a></li>
             <li><a href="https://layersoftruth.org/service">Siloam 2023</a></li>
             <li><a href="https://layersoftruth.org/About-Us">About</a></li>
@@ -67,7 +68,7 @@
             {% endif %}
         </ul>
     </nav>
-    <main class="p-5">
+    <main>
         {% block main %}
         {% endblock main %}
     </main>
