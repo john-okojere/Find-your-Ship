@@ -58,8 +58,8 @@
         <ul id="nav_item">
             <li><a href="/">Home</a></li>
             <li><a href="{% url 'form' %}">Find Your Sheep</a></li>
-            <li><a href="https://layersoftruth.org/service">Siloam 2023</a></li>
-            <li><a href="https://layersoftruth.org/About-Us">About</a></li>
+            <li><a href="https://www.layersoftruth.org/service/">Siloam 2023</a></li>
+            <li><a href="https://www.layersoftruth.org/About-Us">About</a></li>
             {% if user.is_authenticated %}
             <li><a href="https://layersoftruth.org/account/profile">{{request.user.username}}</a></li>
               {% else %}
