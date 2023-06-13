@@ -61,7 +61,7 @@
             <li><a href="https://layersoftruth.org/service">Siloam 2023</a></li>
             <li><a href="https://layersoftruth.org/About-Us">About</a></li>
             {% if user.is_authenticated %}
-            <li><a href="https://layersoftruth.org/profile">{{request.user.username}}</a></li>
+            <li><a href="https://layersoftruth.org/account/profile">{{request.user.username}}</a></li>
               {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
 
