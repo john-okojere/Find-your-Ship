@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'HBD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.abspath(os.path.join(BASE_DIR, "../LayersOfTruth/db.sqlite3")),
+        'NAME': os.path.abspath(os.path.join(BASE_DIR, "../LayersOfTruths/db.sqlite3")),
     }
 }
 print(BASE_DIR)
