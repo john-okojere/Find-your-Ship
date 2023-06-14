@@ -68,7 +68,8 @@
             <li><a href="https://www.layersoftruth.org/About-Us">About</a></li>
             {% if user.is_authenticated %}
             <li><a href="https://layersoftruth.org/account/profile">{{request.user.username}}</a></li>
-              {% else %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
 
             {% endif %}
