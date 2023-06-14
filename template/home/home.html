@@ -2,6 +2,7 @@
 {% load static %}
 {% block main %}
 <style>
+  
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -31,7 +32,7 @@
       z-index: 0;
     }
   </style>
-  <style>
+<style>
     /* CSS styling for the modal */
     .modal {
       display: none;
@@ -52,7 +53,11 @@
       width: 80%;
       max-width: 600px;
     }
-
+@media screen and (max-width:760px) {
+  .modal-content{
+    margin: 30% auto;
+  }
+}
     .close {
       color: #aaa;
       float: right;
@@ -75,84 +80,138 @@
     }
   </style>
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light text-light">HAPPY BIRTHDAY DADDIE</h1>
-          <p class="lead text-muted">Happy birthday to Daddie, the extraordinary pastor of Layers of Truth Church, whose teachings, love, and unwavering commitment have touched our lives and shaped our faith in remarkable ways.
-          </p>
-          <p>
-            <a href="{% url 'form' %}" class="btn submit my-2"style="color: wheat;
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light text-light">HAPPY BIRTHDAY DADDIE</h1>
+      <p class="lead text-muted">Happy birthday to Daddie, the extraordinary
+        pastor of Layers of Truth Church, whose teachings, love, and unwavering
+        commitment have touched our lives and shaped our faith in remarkable
+        ways.
+      </p>
+      <p>
+        <a href="{% url 'form' %}" class="btn submit my-2" style="color: wheat;
             border: 3px solid wheat;">Write to Daddie</a>
-            <a href="https://t.me/+25s9rZswn4A0ZWRk" class="btn btn-secondary my-2" style="color: black;
-            background-color:wheat;border: 3px solid wheat;">Listen to his messages</a>
-          </p>
+        <a href="https://t.me/+25s9rZswn4A0ZWRk" class="btn btn-secondary my-2"
+          style="color: black;
+            background-color:wheat;border: 3px solid wheat;">Listen to his
+          messages</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-dark">
+      {% for wish in wishes %}
+      <style>
+         #content{{wish.id}} {
+          display: none;
+        }
+      </style>
+      <div class="col text-black">
+        <div class="card shadow-sm">
+          <div class="bd-placeholder-img card-img-top"
+            style="width:100%;height:225px;background-image: url('{{wish.A_picture_of_Daddie.url}}');background-position: center;background-size: cover;">
+
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{wish.Your_story | truncatechars:100}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href="#" id="openModalBtn{{wish.id}}"
+                  class="btn btn-sm btn-outline-secondary">View</a>
+              </div>
+              <small class="text-muted">{{wish.date_added}}</small>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-  
-    <div class="album py-5">
-      <div class="container">
-  
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-dark">
-            {% for wish in wishes %}
-            <div class="col text-black">
-                <div class="card shadow-sm">
-      <div  class="bd-placeholder-img card-img-top" style="width:100%;height:225px;background-image: url('{{wish.A_picture_of_Daddie.url}}');background-position: center;background-size: cover;">
+      <div id="myModal{{wish.id}}" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close{{wish.id}}">&times;</span>
+            <div id="countdown{{wish.id}}"></div>
+          <div id="content{{wish.id}}">
+            <h2><img src="{{wish.A_picture_of_Daddie.url}}" style="width:100%"
+                alt
+                srcset></h2>
+            <p>{{wish.Your_story}}</p>
+            <div>
+              <strong>Author</strong> : {{wish.user.last_name|title}}
+              {{wish.user.first_name | title}}
+            </div>
+          </div>
 
+        </div>
       </div>
-                  <div class="card-body">
-                    <p class="card-text">{{wish.Your_story | truncatechars:100}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" id="openModalBtn{{wish.id}}" class="btn btn-sm btn-outline-secondary">View</button>
-                      </div>
-                      <small class="text-muted">{{wish.date_added}}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="myModal{{wish.id}}" class="modal">
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <h2><img src="{{wish.A_picture_of_Daddie.url}}" style="width:100%" alt="" srcset=""></h2>
-                  <p>{{wish.Your_story}}</p>
-                  <div>
-                    <strong>Author</strong> : {{wish.user.last_name|title}} {{wish.user.first_name | title}}
-                  </div>
-                </div>
-              </div>
-            
-              <script>
+
+      <script>
                 // JavaScript code to handle the button click and display the modal
-                var modal = document.getElementById("myModal{{wish.id}}");
-                var btn = document.getElementById("openModalBtn{{wish.id}}");
-                var span = document.getElementsByClassName("close")[0];
+                var modal{{wish.id}} = document.getElementById("myModal{{wish.id}}");
+                var btn{{wish.id}} = document.getElementById("openModalBtn{{wish.id}}");
+                var span{{wish.id}} = document.getElementById("close{{wish.id}}");
             
                 // Open the modal when the button is clicked
-                btn.onclick = function() {
-                  modal.style.display = "block";
+                btn{{wish.id}}.onclick = function() {
+                  modal{{wish.id}}.style.display = "block";
                 };
             
                 // Close the modal when the 'x' (close) button is clicked
-                span.onclick = function() {
-                  modal.style.display = "none";
+                span{{wish.id}}.onclick = function() {
+                  modal{{wish.id}}.style.display = "none";
                 };
             
                 // Close the modal when the user clicks outside the modal content
                 window.onclick = function(event) {
-                  if (event.target == modal) {
-                    modal.style.display = "none";
+                  if (event.target == modal{{wish.id}}) {
+                    modal{{wish.id}}.style.display = "none";
                   }
                 };
+                function countdown(targetDate{{wish.id}}) {
+                  let countdownElement{{wish.id}} = document.getElementById("countdown{{wish.id}}");
+                  let contentElement{{wish.id}} = document.getElementById("content{{wish.id}}");
+
+                  let timer{{wish.id}} = setInterval(function() {
+                    let currentDate{{wish.id}} = new Date().getTime();
+                    let remainingTime{{wish.id}} = targetDate{{wish.id}} - currentDate{{wish.id}};
+
+                    if (remainingTime{{wish.id}} <= 0) {
+                      clearInterval(timer{{wish.id}});
+                      contentElement{{wish.id}}.style.display = "block";
+                    } else {
+                      let days{{wish.id}} = Math.floor(remainingTime{{wish.id}} / (1000 * 60 * 60 * 24));
+                      let hours{{wish.id}} = Math.floor(
+                        (remainingTime{{wish.id}} % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+                      );
+                      let minutes{{wish.id}} = Math.floor(
+                        (remainingTime{{wish.id}} % (1000 * 60 * 60)) / (1000 * 60)
+                      );
+                      let seconds{{wish.id}} = Math.floor((remainingTime{{wish.id}} % (1000 * 60)) / 1000);
+
+                      countdownElement{{wish.id}}.innerHTML =
+                        "<center><b>Time remaining</b></center> <br> " +
+                        days{{wish.id}} +
+                        " days, " +
+                        hours{{wish.id}} +
+                        " hours, " +
+                        minutes{{wish.id}} +
+                        " minutes, " +
+                        seconds{{wish.id}} +
+                        " seconds";
+                    }
+                  }, 1000);
+                }
+
+// Usage: Set the target date for the countdown
+                let targetDate{{wish.id}} = new  Date("2023-06-15T17:10:00").getTime(); // Current date + 2 days
+                countdown(targetDate{{wish.id}});
+
               </script>
-            {% endfor %}
-         
-        </div>
-      </div>
+      {% endfor %}
+
     </div>
-  
-  
-    
-  
+  </div>
+</div>
 {% endblock main %}

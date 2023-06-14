@@ -39,6 +39,12 @@
 
         <title>Find Your Sheep | Layers Of Truth</title>
         <style>
+            /* Hide images by default */
+            img {
+              display: none;
+            }
+          </style>
+        <style>
             .logo_img{
                 -webkit-text-stroke-width: thick;
     word-spacing: -5px;
@@ -82,7 +88,21 @@
       <p class="mb-0">For more enquires? <a href="https://layersoftruth.org">Visit the homepage</a> or listen to our <a href="https://t.me/+25s9rZswn4A0ZWRk">teachings</a>.</p>
     </div>
   </footer>
-  
+  <script>
+    // Preload images
+    function preloadImages() {
+    const images = document.getElementsByTagName("img");
+
+    for (let i = 0; i < images.length; i++) {
+        const image = new Image();
+        image.src = images[i].src;
+    }
+    }
+
+    // Call the preloadImages function when the page finishes loading
+    window.addEventListener("load", preloadImages);
+
+  </script>
 </div>
        
 
