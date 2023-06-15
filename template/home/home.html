@@ -140,11 +140,11 @@
             <p>{{wish.Your_story}}</p>
             <div>
               {% if user.role.title == "Admin" %}
-              <strong>Author id</strong> :{{wish.user.id}} <br>
+              <strong>Author id</strong> :{{wish.id}} <br>
               <strong>Author</strong> : {{wish.user.last_name|title}}
               {{wish.user.first_name | title}}
               {% else %}
-              <strong>Author id</strong> :{{wish.user.id}}
+              <strong>Author id</strong> :{{wish.id}}
               {% endif %}
              
             </div>
